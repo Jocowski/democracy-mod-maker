@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Card, Typography, Input, Tag, Spin, Alert } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { getDataUrl } from '../utils/pathUtils';
 import './DilemmasTable.css';
 
 const { Title } = Typography;
@@ -160,7 +161,7 @@ function DilemmasTable() {
   const fetchDilemmas = async () => {
     try {
       // Get list of dilemma files by parsing directory listing
-      const response = await fetch('/data/simulation/dilemmas/');
+      const response = await fetch(getDataUrl('/data/simulation/dilemmas/'));
       if (!response.ok) {
         throw new Error('Failed to fetch dilemmas directory');
       }
@@ -193,7 +194,7 @@ function DilemmasTable() {
       
       for (const filename of dilemmaFiles) {
         try {
-          const fileResponse = await fetch(`/data/simulation/dilemmas/${filename}`);
+          const fileResponse = await fetch(getDataUrl(`/data/simulation/dilemmas/${filename}`));
           if (fileResponse.ok) {
             const content = await fileResponse.text();
             const dilemma = parseDilemmaFile(content, filename);

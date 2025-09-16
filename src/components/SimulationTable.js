@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Card, Typography, Input, Space, Tag } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { getDataUrl } from '../utils/pathUtils';
 import './SimulationTable.css';
 
 const { Title } = Typography;
@@ -17,7 +18,7 @@ function SimulationTable() {
 
   const loadSimulationData = async () => {
     try {
-      const response = await fetch('/data/simulation/simulation.csv');
+      const response = await fetch(getDataUrl('/data/simulation/simulation.csv'));
       const csvText = await response.text();
       const lines = csvText.split('\n');
       

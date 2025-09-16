@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Card, Typography, Input, Space, Tag, Spin, Alert } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { getDataUrl } from '../utils/pathUtils';
 import './PoliciesTable.css';
 
 const { Title } = Typography;
@@ -406,7 +407,7 @@ function PoliciesTable() {
 
   const fetchPolicies = async () => {
     try {
-      const response = await fetch('/data/simulation/policies.csv');
+      const response = await fetch(getDataUrl('/data/simulation/policies.csv'));
       if (!response.ok) {
         throw new Error('Failed to fetch policies data');
       }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Card, Typography, Input, Tag, Spin, Alert } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { getDataUrl } from '../utils/pathUtils';
 import './SlidersTable.css';
 
 const { Title } = Typography;
@@ -96,7 +97,7 @@ function SlidersTable() {
   const fetchSliders = async () => {
     try {
       setLoading(true);
-      const response = await fetch('/data/simulation/sliders.csv');
+      const response = await fetch(getDataUrl('/data/simulation/sliders.csv'));
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
