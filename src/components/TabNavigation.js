@@ -18,10 +18,10 @@ function TabNavigation({ activeTab, onTabChange }) {
           Official Game Data
         </button>
         <button 
-          className={`tab ${activeTab === 'policies' ? 'active' : ''}`}
-          onClick={() => onTabChange('policies')}
+          className={`tab ${activeTab === 'create-mod' ? 'active' : ''}`}
+          onClick={() => onTabChange('create-mod')}
         >
-          Policies
+          Create Mod
         </button>
       </div>
     </nav>

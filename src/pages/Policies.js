@@ -23,8 +23,7 @@ const languages = [
   { code: 'Arabic', name: 'Arabic' }
 ];
 
-function Policies() {
-  const [policies, setPolicies] = useState([]);
+function Policies({ policies, setPolicies }) {
   const [form] = Form.useForm();
   const [editingPolicy, setEditingPolicy] = useState(null);
   const [deleteModalVisible, setDeleteModalVisible] = useState(false);
@@ -359,6 +358,7 @@ function Policies() {
     form.resetFields();
   };
 
+
   const renderTranslationsForm = () => {
     return (
       <div className="translations-form">
@@ -405,9 +405,11 @@ function Policies() {
   return (
     <div className="policies-container">
       <div className="policies-header">
-        <Title level={2} style={{ color: '#1565c0', margin: 0 }}>
-          Policies Management
-        </Title>
+        <div className="header-content">
+          <Title level={2} style={{ color: '#1565c0', margin: 0 }}>
+            Policies Management
+          </Title>
+        </div>
       </div>
 
           <Card className="create-policy-card">

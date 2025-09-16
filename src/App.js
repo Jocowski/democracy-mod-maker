@@ -3,7 +3,7 @@ import './App.css';
 import TabNavigation from './components/TabNavigation';
 import Home from './pages/Home';
 import OfficialGameData from './pages/OfficialGameData';
-import Policies from './pages/Policies';
+import CreateMod from './pages/CreateMod';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -12,8 +12,8 @@ function App() {
     switch (activeTab) {
       case 'official-game-data':
         return <OfficialGameData />;
-      case 'policies':
-        return <Policies />;
+      case 'create-mod':
+        return <CreateMod />;
       case 'home':
       default:
         return <Home />;
