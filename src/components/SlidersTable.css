@@ -1,0 +1,172 @@
+/* Sliders Table - Styling */
+
+.sliders-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sliders-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.sliders-header h2 {
+  color: #1565c0;
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.sliders-description {
+  color: #1976d2;
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.sliders-loading {
+  text-align: center;
+  padding: 3rem;
+  color: #1565c0;
+}
+
+.sliders-loading p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Card styling */
+.sliders-container .ant-card {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  border: 2px solid rgba(25, 118, 210, 0.2) !important;
+}
+
+/* Sliders Table Styling */
+.sliders-table .ant-table-thead > tr > th {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.sliders-table .ant-table-tbody > tr > td {
+  color: #1565c0 !important;
+  font-weight: 500 !important;
+  border-color: rgba(25, 118, 210, 0.1) !important;
+}
+
+.sliders-table .ant-table-tbody > tr:hover > td {
+  background-color: rgba(25, 118, 210, 0.05) !important;
+}
+
+/* Slider Type Styling */
+.slider-type {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.slider-type.discrete {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.slider-type.percentage {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #ff9800;
+  border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+/* Steps Styling */
+.slider-steps {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.slider-steps.discrete {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #2196f3;
+  border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
+.slider-steps.free {
+  background-color: rgba(156, 39, 176, 0.1);
+  color: #9c27b0;
+  border: 1px solid rgba(156, 39, 176, 0.3);
+}
+
+/* Percentage Range Styling */
+.slider-percentage {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #ff9800;
+  border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+/* Pagination styling */
+.sliders-table .ant-pagination .ant-pagination-item {
+  border-color: rgba(25, 118, 210, 0.3) !important;
+}
+
+.sliders-table .ant-pagination .ant-pagination-item a {
+  color: #1565c0 !important;
+}
+
+.sliders-table .ant-pagination .ant-pagination-item-active {
+  background-color: #1976d2 !important;
+  border-color: #1976d2 !important;
+}
+
+.sliders-table .ant-pagination .ant-pagination-item-active a {
+  color: white !important;
+}
+
+.sliders-table .ant-pagination .ant-pagination-prev,
+.sliders-table .ant-pagination .ant-pagination-next {
+  color: #1565c0 !important;
+}
+
+.sliders-table .ant-pagination .ant-pagination-prev:hover,
+.sliders-table .ant-pagination .ant-pagination-next:hover {
+  color: #1976d2 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sliders-container {
+    padding: 1rem;
+  }
+
+  .sliders-header h2 {
+    font-size: 1.7rem;
+  }
+
+  .sliders-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sliders-container {
+    padding: 0.5rem;
+  }
+
+  .sliders-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .sliders-description {
+    font-size: 0.9rem;
+  }
+}

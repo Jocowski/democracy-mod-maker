@@ -1,0 +1,931 @@
+/* Policies Management - Styling */
+
+.policies-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.policies-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.policies-content {
+  text-align: center;
+  padding: 3rem;
+}
+
+.policies-placeholder {
+  color: #1565c0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Header styling */
+.policies-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Card styling */
+.policies-container .ant-card {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  border: 2px solid rgba(25, 118, 210, 0.2) !important;
+  margin-bottom: 1.5rem;
+}
+
+/* Create Policy Card Styling */
+.create-policy-card {
+  background: linear-gradient(135deg, rgba(25, 118, 210, 0.05) 0%, rgba(21, 101, 192, 0.05) 100%) !important;
+}
+
+.create-policy-header {
+  margin-bottom: 1rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.cancel-edit-button {
+  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%) !important;
+  border: none !important;
+  color: white !important;
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.cancel-edit-button:hover {
+  background: linear-gradient(135deg, #f57c00 0%, #ef6c00 100%) !important;
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+.create-policy-form {
+  display: block;
+}
+
+.create-policy-form .ant-form-item {
+  margin-bottom: 0;
+}
+
+.create-policy-button {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%) !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.create-policy-button:hover {
+  background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%) !important;
+  box-shadow: 0 6px 16px rgba(25, 118, 210, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+.create-policy-form .ant-input {
+  border-color: rgba(25, 118, 210, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.create-policy-form .ant-input:focus,
+.create-policy-form .ant-input:hover {
+  border-color: #1976d2 !important;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2) !important;
+}
+
+.create-policy-form .ant-select {
+  border-color: rgba(25, 118, 210, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.create-policy-form .ant-select:focus,
+.create-policy-form .ant-select:hover {
+  border-color: #1976d2 !important;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2) !important;
+}
+
+.create-policy-form .ant-input-number {
+  border-color: rgba(25, 118, 210, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.create-policy-form .ant-input-number:focus,
+.create-policy-form .ant-input-number:hover {
+  border-color: #1976d2 !important;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2) !important;
+}
+
+.create-policy-form .ant-form-item-label > label {
+  color: #1565c0 !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+}
+
+.create-policy-form .ant-form-item-label > label .anticon {
+  transition: color 0.3s ease !important;
+}
+
+.create-policy-form .ant-form-item-label > label .anticon:hover {
+  color: #0d47a1 !important;
+}
+
+/* Policy Flags Styling */
+.policy-flags {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.policy-flags.none {
+  background-color: rgba(158, 158, 158, 0.1);
+  color: #9e9e9e;
+  border: 1px solid rgba(158, 158, 158, 0.3);
+}
+
+.policy-flags.uncancellable {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.policy-flags.multiplyincome {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+/* Policy Opposites Styling */
+.policy-opposites {
+  color: #1565c0;
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Policy Cost Styling */
+.policy-cost {
+  color: #1976d2;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  display: inline-block;
+  min-width: 30px;
+}
+
+/* Policy Implementation Styling */
+.policy-implementation {
+  color: #1976d2;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  display: inline-block;
+  min-width: 30px;
+}
+
+/* Policy Cost Function Styling */
+.policy-cost-function {
+  color: #1976d2;
+  font-weight: 500;
+  font-size: 0.85rem;
+  font-family: 'Courier New', monospace;
+  background-color: rgba(25, 118, 210, 0.05);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  border: 1px solid rgba(25, 118, 210, 0.2);
+  display: inline-block;
+  max-width: 100%;
+  word-break: break-all;
+}
+
+/* Policy Income Styling */
+.policy-income {
+  color: #4caf50;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  display: inline-block;
+  min-width: 30px;
+}
+
+/* Policy Income Function Styling */
+.policy-income-function {
+  color: #4caf50;
+  font-weight: 500;
+  font-size: 0.85rem;
+  font-family: 'Courier New', monospace;
+  background-color: rgba(76, 175, 80, 0.05);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  border: 1px solid rgba(76, 175, 80, 0.2);
+  display: inline-block;
+  max-width: 100%;
+  word-break: break-all;
+}
+
+/* Policy Department Styling */
+.policy-department {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.policy-department.none {
+  background-color: rgba(158, 158, 158, 0.1);
+  color: #9e9e9e;
+  border: 1px solid rgba(158, 158, 158, 0.3);
+}
+
+.policy-department.foreignpolicy {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #2196f3;
+  border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
+.policy-department.welfare {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.policy-department.economy {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #ff9800;
+  border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+.policy-department.tax {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.policy-department.publicservices {
+  background-color: rgba(156, 39, 176, 0.1);
+  color: #9c27b0;
+  border: 1px solid rgba(156, 39, 176, 0.3);
+}
+
+.policy-department.lawandorder {
+  background-color: rgba(96, 125, 139, 0.1);
+  color: #607d8b;
+  border: 1px solid rgba(96, 125, 139, 0.3);
+}
+
+.policy-department.transport {
+  background-color: rgba(0, 150, 136, 0.1);
+  color: #009688;
+  border: 1px solid rgba(0, 150, 136, 0.3);
+}
+
+/* Policies Management Table Styling */
+.policies-management-table .ant-table-thead > tr > th {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.policies-management-table .ant-table-tbody > tr > td {
+  color: #1565c0 !important;
+  font-weight: 500 !important;
+  border-color: rgba(25, 118, 210, 0.1) !important;
+}
+
+.policies-management-table .ant-table-tbody > tr:hover > td {
+  background-color: rgba(25, 118, 210, 0.05) !important;
+}
+
+/* Pagination styling */
+.policies-management-table .ant-pagination .ant-pagination-item {
+  border-color: rgba(25, 118, 210, 0.3) !important;
+}
+
+.policies-management-table .ant-pagination .ant-pagination-item a {
+  color: #1565c0 !important;
+}
+
+.policies-management-table .ant-pagination .ant-pagination-item-active {
+  background-color: #1976d2 !important;
+  border-color: #1976d2 !important;
+}
+
+.policies-management-table .ant-pagination .ant-pagination-item-active a {
+  color: white !important;
+}
+
+.policies-management-table .ant-pagination .ant-pagination-prev,
+.policies-management-table .ant-pagination .ant-pagination-next {
+  color: #1565c0 !important;
+}
+
+.policies-management-table .ant-pagination .ant-pagination-prev:hover,
+.policies-management-table .ant-pagination .ant-pagination-next:hover {
+  color: #1976d2 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .policies-container {
+    padding: 1rem;
+  }
+  
+  .policies-content {
+    padding: 2rem;
+  }
+  
+  .policies-placeholder {
+    font-size: 1.1rem;
+  }
+
+  .create-policy-form {
+    display: block;
+  }
+
+  .create-policy-form .ant-input,
+  .create-policy-form .ant-select,
+  .create-policy-form .ant-input-number {
+    width: 100% !important;
+  }
+
+  .create-policy-form .ant-form-item {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .policies-container {
+    padding: 0.5rem;
+  }
+  
+  .policies-content {
+    padding: 1.5rem;
+  }
+  
+  .policies-placeholder {
+    font-size: 1rem;
+  }
+
+  .create-policy-form {
+    display: block;
+  }
+
+  .create-policy-form .ant-input,
+  .create-policy-form .ant-select,
+  .create-policy-form .ant-input-number {
+    width: 100% !important;
+  }
+
+  .create-policy-form .ant-form-item {
+    margin-bottom: 0.8rem;
+  }
+
+  .create-policy-button {
+    width: 100%;
+  }
+}
+
+/* Form Sections Styling */
+.form-section {
+  margin-bottom: 2rem;
+  border: 1px solid #e8f4fd;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
+  overflow: hidden;
+  display: block !important;
+  width: 100% !important;
+  float: none !important;
+  clear: both !important;
+}
+
+.section-header {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid #e8f4fd;
+}
+
+.section-header h5 {
+  color: white !important;
+  font-weight: 600;
+  margin: 0 !important;
+  font-size: 1rem;
+}
+
+.section-content {
+  padding: 1.5rem;
+}
+
+/* Cost Inputs Row */
+.cost-inputs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Cost Function Row */
+.cost-function-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Income Inputs Row */
+.income-inputs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Income Function Row */
+.income-function-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Basic Info Row */
+.basic-info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Policy Behavior Row */
+.policy-behavior-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Political Capital Grid */
+.political-capital-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+/* Form sections in rows */
+.form-section {
+  display: block;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+/* Form Submit Section */
+.form-submit-section {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
+  border-radius: 8px;
+  border: 1px solid #e8f4fd;
+  margin-top: 1rem;
+}
+
+.form-submit-section .ant-form-item {
+  margin-bottom: 0;
+}
+
+/* Policy Form Tabs */
+.policy-form-tabs {
+  margin-top: 1rem;
+}
+
+.policy-form-tabs .ant-tabs-nav {
+  background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
+  border-radius: 8px 8px 0 0;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+.policy-form-tabs .ant-tabs-tab {
+  color: #1565c0 !important;
+  font-weight: 600 !important;
+  padding: 1rem 1.5rem !important;
+  border: none !important;
+  background: transparent !important;
+  transition: all 0.3s ease !important;
+}
+
+.policy-form-tabs .ant-tabs-tab:hover {
+  color: #1976d2 !important;
+  background: rgba(25, 118, 210, 0.05) !important;
+}
+
+.policy-form-tabs .ant-tabs-tab-active {
+  color: #1976d2 !important;
+  background: rgba(25, 118, 210, 0.1) !important;
+  border-bottom: 3px solid #1976d2 !important;
+}
+
+.policy-form-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #1976d2 !important;
+}
+
+.policy-form-tabs .ant-tabs-content-holder {
+  background: white;
+  border-radius: 0 0 8px 8px;
+  border: 1px solid #e8f4fd;
+  border-top: none;
+  padding: 1.5rem;
+}
+
+.policy-form-tabs .ant-tabs-tabpane {
+  padding: 0;
+}
+
+/* Translations Form */
+.translations-form {
+  padding: 0;
+}
+
+.translations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.language-section {
+  background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
+  border: 1px solid #e8f4fd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.language-section:hover {
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.1);
+  transform: translateY(-2px);
+}
+
+.language-header {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e8f4fd;
+}
+
+.language-header h5 {
+  color: white !important;
+  font-weight: 600;
+  margin: 0 !important;
+  font-size: 0.95rem;
+}
+
+.language-fields {
+  padding: 1rem;
+}
+
+.language-fields .ant-form-item {
+  margin-bottom: 1rem;
+}
+
+.language-fields .ant-form-item:last-child {
+  margin-bottom: 0;
+}
+
+.language-fields .ant-form-item-label > label {
+  color: #1565c0 !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+}
+
+.language-fields .ant-input,
+.language-fields .ant-input:focus,
+.language-fields .ant-input:hover {
+  border-color: rgba(25, 118, 210, 0.3) !important;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.1) !important;
+}
+
+.language-fields .ant-input:focus {
+  border-color: #1976d2 !important;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2) !important;
+}
+
+.language-fields .ant-input::placeholder {
+  color: #999 !important;
+  font-style: italic;
+}
+
+/* Action Buttons Styling */
+.edit-policy-button {
+  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%) !important;
+  border: none !important;
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.edit-policy-button:hover {
+  background: linear-gradient(135deg, #388e3c 0%, #2e7d32 100%) !important;
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+.delete-policy-button {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%) !important;
+  border: none !important;
+  box-shadow: 0 2px 6px rgba(244, 67, 54, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.delete-policy-button:hover {
+  background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%) !important;
+  box-shadow: 0 4px 10px rgba(244, 67, 54, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+/* Delete Confirmation Modal */
+.delete-confirmation-modal {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.delete-confirmation-modal .ant-modal-header {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%) !important;
+  border-bottom: none !important;
+  padding: 1.5rem 2rem !important;
+  border-radius: 12px 12px 0 0 !important;
+}
+
+.delete-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: white;
+}
+
+.delete-modal-icon {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.delete-confirmation-modal .ant-modal-title {
+  color: white !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  margin: 0 !important;
+}
+
+.delete-confirmation-modal .ant-modal-close {
+  color: white !important;
+  font-size: 1.25rem !important;
+  top: 1.5rem !important;
+  right: 2rem !important;
+}
+
+.delete-confirmation-modal .ant-modal-close:hover {
+  color: rgba(255, 255, 255, 0.8) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 50% !important;
+}
+
+.delete-confirmation-modal .ant-modal-body {
+  padding: 2rem !important;
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%) !important;
+}
+
+.delete-modal-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.delete-warning-icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+  border: 2px solid #f44336;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  color: #f44336;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.2);
+}
+
+.delete-modal-text {
+  flex: 1;
+}
+
+.delete-modal-text h3 {
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+.policy-to-delete {
+  background: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.policy-label {
+  color: #666;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.policy-name {
+  color: #1565c0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  font-family: 'Courier New', monospace;
+  background: linear-gradient(135deg, #e3f2fd 0%, #f0f7ff 100%);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #bbdefb;
+  display: inline-block;
+}
+
+.delete-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  border: 1px solid #ffb74d;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(255, 183, 77, 0.1);
+}
+
+.warning-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.warning-text {
+  color: #e65100;
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.delete-confirmation-modal .ant-modal-footer {
+  background: white !important;
+  border-top: 1px solid #e8e8e8 !important;
+  padding: 1.5rem 2rem !important;
+  border-radius: 0 0 12px 12px !important;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.delete-confirm-button {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 600 !important;
+  padding: 0.75rem 2rem !important;
+  height: auto !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.delete-confirm-button:hover {
+  background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%) !important;
+  box-shadow: 0 6px 16px rgba(244, 67, 54, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+.delete-cancel-button {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%) !important;
+  border: 1px solid #d0d0d0 !important;
+  color: #666 !important;
+  font-weight: 500 !important;
+  padding: 0.75rem 2rem !important;
+  height: auto !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.delete-cancel-button:hover {
+  background: linear-gradient(135deg, #e0e0e0 0%, #d0d0d0 100%) !important;
+  border-color: #b0b0b0 !important;
+  color: #333 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Responsive adjustments for form sections */
+@media (max-width: 768px) {
+  .cost-inputs-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .cost-function-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .income-inputs-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .income-function-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .basic-info-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .policy-behavior-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .political-capital-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-content {
+    padding: 1rem;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  /* Delete Modal Responsive */
+  .delete-confirmation-modal {
+    width: 95% !important;
+    max-width: 400px !important;
+  }
+  
+  .delete-confirmation-modal .ant-modal-header {
+    padding: 1rem 1.5rem !important;
+  }
+  
+  .delete-confirmation-modal .ant-modal-body {
+    padding: 1.5rem !important;
+  }
+  
+  .delete-confirmation-modal .ant-modal-footer {
+    padding: 1rem 1.5rem !important;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .delete-modal-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .delete-warning-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    margin: 0 auto;
+  }
+  
+  .delete-confirm-button,
+  .delete-cancel-button {
+    width: 100% !important;
+    padding: 0.75rem 1.5rem !important;
+  }
+  
+  /* Translations Responsive */
+  .translations-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .language-section {
+    margin-bottom: 0;
+  }
+  
+  .policy-form-tabs .ant-tabs-content-holder {
+    padding: 1rem;
+  }
+  
+  .language-fields {
+    padding: 0.75rem;
+  }
+}

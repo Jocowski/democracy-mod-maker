@@ -1,0 +1,164 @@
+/* Home Page Styling */
+
+.welcome-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 800px;
+  border: 2px solid rgba(25, 118, 210, 0.2);
+}
+
+.welcome-title {
+  color: #1565c0;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-text {
+  color: #1565c0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+  font-weight: 500;
+}
+
+.disclaimer-section,
+.game-link-section,
+.features-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(25, 118, 210, 0.05);
+  border-radius: 8px;
+  border-left: 4px solid rgba(25, 118, 210, 0.3);
+  text-align: left;
+}
+
+.disclaimer-title,
+.game-link-title,
+.features-title {
+  color: #1976d2;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+.disclaimer-text,
+.game-link-text {
+  color: #1565c0;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.disclaimer-text strong {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+.steam-link {
+  display: inline-block;
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+}
+
+.steam-link:hover {
+  background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(25, 118, 210, 0.4);
+  text-decoration: none;
+  color: white;
+}
+
+.features-list {
+  color: #1565c0;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.features-list li {
+  margin: 0.5rem 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .welcome-container {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .welcome-title {
+    font-size: 1.7rem;
+  }
+  
+  .welcome-text {
+    font-size: 1.1rem;
+  }
+  
+  .disclaimer-section,
+  .game-link-section,
+  .features-section {
+    padding: 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  .disclaimer-title,
+  .game-link-title,
+  .features-title {
+    font-size: 1.2rem;
+  }
+  
+  .steam-link {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-container {
+    padding: 1.5rem;
+  }
+  
+  .welcome-title {
+    font-size: 1.5rem;
+  }
+  
+  .welcome-text {
+    font-size: 1rem;
+  }
+  
+  .disclaimer-section,
+  .game-link-section,
+  .features-section {
+    padding: 0.8rem;
+    margin: 1rem 0;
+  }
+  
+  .disclaimer-title,
+  .game-link-title,
+  .features-title {
+    font-size: 1.1rem;
+  }
+  
+  .steam-link {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .features-list {
+    padding-left: 1rem;
+  }
+}
