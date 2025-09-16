@@ -3,6 +3,7 @@ import { Card, Typography } from 'antd';
 import PoliciesTable from '../components/PoliciesTable';
 import DilemmasTable from '../components/DilemmasTable';
 import SlidersTable from '../components/SlidersTable';
+import SimulationTable from '../components/SimulationTable';
 import './OfficialGameData.css';
 
 const { Title } = Typography;
@@ -18,6 +19,8 @@ function OfficialGameData() {
         return <DilemmasTable />;
       case 'sliders':
         return <SlidersTable />;
+      case 'simulation':
+        return <SimulationTable />;
       default:
         return <PoliciesTable />;
     }
@@ -51,6 +54,12 @@ function OfficialGameData() {
               onClick={() => setActiveSubTab('sliders')}
             >
               Sliders
+            </button>
+            <button 
+              className={`sub-tab ${activeSubTab === 'simulation' ? 'active' : ''}`}
+              onClick={() => setActiveSubTab('simulation')}
+            >
+              Simulation
             </button>
           </div>
         </div>

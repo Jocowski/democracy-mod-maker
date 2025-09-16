@@ -1,180 +1,317 @@
-/* Democracy 4 Mod Maker - Antd Table Styling */
+/* Policies Table Styling */
 
-.policies-container {
-  padding: 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
+.policies-table-container {
+  padding: 0;
 }
 
-.policies-header {
-  margin-bottom: 2rem;
+.policies-table-header {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(25, 118, 210, 0.05) 0%, rgba(21, 101, 192, 0.05) 100%);
+  border-radius: 8px;
+  border: 1px solid rgba(25, 118, 210, 0.2);
+}
+
+.policies-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.policies-search-container {
+  display: flex;
+  align-items: center;
+}
+
+.policies-search-input {
+  width: 300px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.3s ease;
+}
+
+.policies-search-input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+.policies-table-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8f4fd;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.policies-table {
+  font-size: 0.9rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.policies-table .ant-table-container {
+  width: 100%;
+  max-width: 100%;
+}
+
+.policies-table .ant-table-thead > tr > th {
+  background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
+  color: #1565c0;
+  font-weight: 600;
+  border-bottom: 2px solid #e8f4fd;
+  padding: 12px 8px;
+}
+
+.policies-table .ant-table-tbody > tr > td {
+  padding: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.policies-table .ant-table-tbody > tr:hover > td {
+  background: rgba(25, 118, 210, 0.05);
+}
+
+.policies-table .ant-table-tbody > tr.ant-table-row-selected > td {
+  background: rgba(25, 118, 210, 0.1);
+}
+
+/* Policy Data Styling */
+.policy-name {
+  font-weight: 600;
+  color: #1565c0;
+  font-size: 1rem;
+}
+
+.policy-slider {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: #666;
+  background: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.policy-department {
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.policy-flags {
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.policy-cost,
+.policy-income,
+.policy-implementation {
+  font-family: 'Courier New', monospace;
+  font-weight: 500;
+  color: #666;
+}
+
+.policy-function {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.4;
+  max-width: 200px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.policy-effects {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.4;
+  max-width: 300px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.policy-opposites,
+.policy-prereqs {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+}
+
+.policy-value {
+  font-family: 'Courier New', monospace;
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.policy-multiplier {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.4;
+  max-width: 150px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.policy-gdp {
+  font-family: 'Courier New', monospace;
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+/* Pagination Styling */
+.policies-table .ant-pagination {
+  margin-top: 1rem;
   text-align: center;
 }
 
-/* Antd Table Custom Styling */
-.policies-antd-table .ant-table-thead > tr > th {
-  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%) !important;
-  color: white !important;
-  font-weight: 600 !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
+.policies-table .ant-pagination .ant-pagination-item {
+  border-color: #d9d9d9;
 }
 
-.policies-antd-table .ant-table-tbody > tr > td {
-  color: #1565c0 !important;
-  font-weight: 500 !important;
-  border-color: rgba(25, 118, 210, 0.1) !important;
+.policies-table .ant-pagination .ant-pagination-item-active {
+  background: #1976d2;
+  border-color: #1976d2;
 }
 
-.policies-antd-table .ant-table-tbody > tr:hover > td {
-  background-color: rgba(25, 118, 210, 0.05) !important;
+.policies-table .ant-pagination .ant-pagination-item-active a {
+  color: white;
 }
 
-/* Remove conflicting styles for fixed columns - handled above */
-
-/* Fixed columns styling */
-.policies-antd-table .ant-table-thead > tr > th.ant-table-cell-fix-left {
-  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%) !important;
-  z-index: 11 !important;
-  position: sticky !important;
-  left: 0 !important;
+.policies-table .ant-pagination .ant-pagination-item:hover {
+  border-color: #1976d2;
 }
 
-.policies-antd-table .ant-table-thead > tr > th.ant-table-cell-fix-left:nth-child(2) {
-  left: 60px !important;
-}
-
-.policies-antd-table .ant-table-tbody > tr > td.ant-table-cell-fix-left {
-  background-color: rgba(255, 255, 255, 0.98) !important;
-  z-index: 10 !important;
-  position: sticky !important;
-  left: 0 !important;
-  border-right: 2px solid rgba(25, 118, 210, 0.2) !important;
-}
-
-.policies-antd-table .ant-table-tbody > tr > td.ant-table-cell-fix-left:nth-child(2) {
-  left: 60px !important;
-  background-color: rgba(255, 255, 255, 0.98) !important;
-}
-
-.policies-antd-table .ant-table-tbody > tr:hover > td.ant-table-cell-fix-left {
-  background-color: rgba(25, 118, 210, 0.05) !important;
-}
-
-.policies-antd-table .ant-table-tbody > tr:hover > td.ant-table-cell-fix-left:nth-child(2) {
-  background-color: rgba(25, 118, 210, 0.05) !important;
-}
-
-/* Pagination styling */
-.policies-antd-table .ant-pagination .ant-pagination-item {
-  border-color: rgba(25, 118, 210, 0.3) !important;
-}
-
-.policies-antd-table .ant-pagination .ant-pagination-item a {
-  color: #1565c0 !important;
-}
-
-.policies-antd-table .ant-pagination .ant-pagination-item-active {
-  background-color: #1976d2 !important;
-  border-color: #1976d2 !important;
-}
-
-.policies-antd-table .ant-pagination .ant-pagination-item-active a {
-  color: white !important;
-}
-
-.policies-antd-table .ant-pagination .ant-pagination-prev,
-.policies-antd-table .ant-pagination .ant-pagination-next {
-  color: #1565c0 !important;
-}
-
-.policies-antd-table .ant-pagination .ant-pagination-prev:hover,
-.policies-antd-table .ant-pagination .ant-pagination-next:hover {
-  color: #1976d2 !important;
-}
-
-/* Card styling */
-.policies-container .ant-card {
-  border-radius: 12px !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
-  border: 2px solid rgba(25, 118, 210, 0.2) !important;
-}
-
-/* Resize handle styling */
-.policies-antd-table .ant-table-thead > tr > th {
-  position: relative;
-}
-
-.policies-antd-table .ant-table-thead > tr > th:hover {
-  background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%) !important;
-}
-
-/* Resize handle visual feedback */
-.policies-antd-table .ant-table-thead > tr > th .resize-handle {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: 5px;
-  background: rgba(255, 255, 255, 0.3);
-  cursor: col-resize;
-  user-select: none;
-  touch-action: none;
-  transition: background-color 0.2s ease;
-}
-
-.policies-antd-table .ant-table-thead > tr > th .resize-handle:hover {
-  background: rgba(255, 255, 255, 0.6);
-}
-
-/* Multiplier text formatting */
-.policies-antd-table .ant-table-tbody > tr > td .multiplier-text {
-  font-family: 'Courier New', monospace;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  white-space: pre-line;
-  color: #1565c0;
-  background-color: rgba(25, 118, 210, 0.05);
-  padding: 4px 6px;
-  border-radius: 4px;
-  border-left: 3px solid rgba(25, 118, 210, 0.3);
-}
-
-/* Effects text formatting */
-.policies-antd-table .ant-table-tbody > tr > td .effects-text {
-  font-family: 'Courier New', monospace;
-  font-size: 0.8rem;
-  line-height: 1.3;
-  white-space: pre-line;
+.policies-table .ant-pagination .ant-pagination-item:hover a {
   color: #1976d2;
-  background-color: rgba(25, 118, 210, 0.08);
-  padding: 6px 8px;
-  border-radius: 4px;
-  border-left: 3px solid rgba(25, 118, 210, 0.4);
-  max-height: 200px;
-  overflow-y: auto;
 }
 
-/* Responsive design */
+.policies-table .ant-pagination .ant-pagination-prev:hover,
+.policies-table .ant-pagination .ant-pagination-next:hover {
+  border-color: #1976d2;
+  color: #1976d2;
+}
+
+/* Filter Dropdown Styling */
+.policies-table .ant-table-filter-dropdown {
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.policies-table .ant-table-filter-dropdown .ant-checkbox-wrapper {
+  color: #1565c0;
+}
+
+.policies-table .ant-table-filter-dropdown .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #1976d2;
+  border-color: #1976d2;
+}
+
+/* Loading State */
+.policies-table .ant-spin-container {
+  min-height: 200px;
+}
+
+/* Sort Icons */
+.policies-table .ant-table-column-sorter {
+  color: #1565c0;
+}
+
+.policies-table .ant-table-column-sorter-up.active,
+.policies-table .ant-table-column-sorter-down.active {
+  color: #1976d2;
+}
+
+/* Selection Styling */
+.policies-table .ant-checkbox-wrapper {
+  color: #1565c0;
+}
+
+.policies-table .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #1976d2;
+  border-color: #1976d2;
+}
+
+.policies-table .ant-checkbox-indeterminate .ant-checkbox-inner {
+  background-color: #1976d2;
+  border-color: #1976d2;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .policies-container {
-    padding: 1rem;
+  .policies-table-header {
+    padding: 0.75rem;
   }
   
-  .policies-antd-table .ant-table-thead > tr > th,
-  .policies-antd-table .ant-table-tbody > tr > td {
-    padding: 8px 4px !important;
-    font-size: 0.8rem !important;
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  
+  .search-input {
+    width: 100%;
+  }
+  
+  .policies-table {
+    font-size: 0.8rem;
+  }
+  
+  .policies-table .ant-table-thead > tr > th {
+    padding: 8px 4px;
+    font-size: 0.8rem;
+  }
+  
+  .policies-table .ant-table-tbody > tr > td {
+    padding: 6px 4px;
+  }
+  
+  .policy-effects {
+    max-width: 150px;
   }
 }
 
 @media (max-width: 480px) {
-  .policies-container {
+  .policies-table-header {
     padding: 0.5rem;
   }
   
-  .policies-antd-table .ant-table-thead > tr > th,
-  .policies-antd-table .ant-table-tbody > tr > td {
-    padding: 6px 2px !important;
-    font-size: 0.7rem !important;
+  .policies-table .ant-table-thead > tr > th {
+    padding: 6px 2px;
+    font-size: 0.75rem;
+  }
+  
+  .policies-table .ant-table-tbody > tr > td {
+    padding: 4px 2px;
+  }
+  
+  .policy-name {
+    font-size: 1rem;
+  }
+  
+  .policy-department,
+  .policy-flags {
+    font-size: 0.7rem;
+  }
+  
+  .policy-slider {
+    font-size: 0.7rem;
+    padding: 1px 4px;
+  }
+  
+  .policy-effects {
+    font-size: 0.7rem;
+    max-width: 100px;
   }
 }

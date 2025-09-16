@@ -1,18 +1,69 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Typography, Spin, Alert } from 'antd';
-import ResizableTable from './ResizableTable';
+import { Table, Card, Typography, Input, Tag, Spin, Alert } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 import './DilemmasTable.css';
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 function DilemmasTable() {
   const [dilemmas, setDilemmas] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchText, setSearchText] = useState('');
+  const [pagination, setPagination] = useState({
+    current: 1,
+    pageSize: 20,
+    total: 0,
+  });
 
   useEffect(() => {
     fetchDilemmas();
   }, []);
+
+  useEffect(() => {
+    setFilteredData(dilemmas);
+    setPagination(prev => ({
+      ...prev,
+      total: dilemmas.length,
+    }));
+  }, [dilemmas]);
+
+  const handleSearch = (value) => {
+    setSearchText(value);
+    if (!value) {
+      setFilteredData(dilemmas);
+      setPagination(prev => ({
+        ...prev,
+        total: dilemmas.length,
+        current: 1,
+      }));
+    } else {
+      const filtered = dilemmas.filter(item =>
+        item.name.toLowerCase().includes(value.toLowerCase()) ||
+        item.influences.some(influence => 
+          influence.toLowerCase().includes(value.toLowerCase())
+        ) ||
+        item.options.some(option => 
+          option.effects.toLowerCase().includes(value.toLowerCase())
+        )
+      );
+      setFilteredData(filtered);
+      setPagination(prev => ({
+        ...prev,
+        total: filtered.length,
+        current: 1,
+      }));
+    }
+  };
+
+  const handleTableChange = (paginationConfig) => {
+    setPagination({
+      current: paginationConfig.current,
+      pageSize: paginationConfig.pageSize,
+      total: paginationConfig.total,
+    });
+  };
 
   // Function to parse dilemma text file
   const parseDilemmaFile = (content, filename) => {
@@ -194,8 +245,13 @@ function DilemmasTable() {
       dataIndex: 'name',
       key: 'name',
       width: 150,
-      fixed: 'left',
       ellipsis: true,
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      render: (name) => (
+        <span className="dilemma-name">
+          {name}
+        </span>
+      ),
     },
     {
       title: 'Influences',
@@ -204,7 +260,7 @@ function DilemmasTable() {
       width: 200,
       ellipsis: true,
       render: (influences) => (
-        <div className="dilemma-text">
+        <div className="dilemma-influences" title={formatInfluences(influences)}>
           {formatInfluences(influences)}
         </div>
       ),
@@ -218,10 +274,10 @@ function DilemmasTable() {
       render: (options) => {
         const option1 = options.find(opt => opt.id === 'option0');
         return option1 ? (
-          <div className="dilemma-text">
+          <div className="dilemma-option" title={formatOptionEffects(option1.effects)}>
             {formatOptionEffects(option1.effects)}
           </div>
-        ) : <div></div>;
+        ) : <div className="dilemma-empty">-</div>;
       },
     },
     {
@@ -233,10 +289,10 @@ function DilemmasTable() {
       render: (options) => {
         const option2 = options.find(opt => opt.id === 'option1');
         return option2 ? (
-          <div className="dilemma-text">
+          <div className="dilemma-option" title={formatOptionEffects(option2.effects)}>
             {formatOptionEffects(option2.effects)}
           </div>
-        ) : <div></div>;
+        ) : <div className="dilemma-empty">-</div>;
       },
     },
     {
@@ -248,41 +304,52 @@ function DilemmasTable() {
       render: (options) => {
         const option3 = options.find(opt => opt.id === 'option2');
         return option3 ? (
-          <div className="dilemma-text">
+          <div className="dilemma-option" title={formatOptionEffects(option3.effects)}>
             {formatOptionEffects(option3.effects)}
           </div>
-        ) : <div></div>;
+        ) : <div className="dilemma-empty">-</div>;
       },
     },
   ];
 
   return (
-    <div className="dilemmas-container">
-      <Card>
-        <div className="dilemmas-header">
-          <Title level={2} style={{ color: '#1565c0', margin: 0 }}>
+    <div className="dilemmas-table-container">
+      <div className="dilemmas-table-header">
+        <div className="dilemmas-header-content">
+          <Title level={3} style={{ color: '#1565c0', margin: 0 }}>
             Dilemmas
           </Title>
-          <Text style={{ color: '#1976d2', fontSize: '1.1rem' }}>
-            Total dilemmas: {dilemmas.length}
-          </Text>
+          <div className="dilemmas-search-container">
+            <Input
+              placeholder="Search dilemmas..."
+              prefix={<SearchOutlined />}
+              value={searchText}
+              onChange={(e) => handleSearch(e.target.value)}
+              className="dilemmas-search-input"
+              allowClear
+            />
+          </div>
         </div>
-        
-        <ResizableTable
+      </div>
+
+      <Card className="dilemmas-table-card">
+        <Table
           columns={columns}
-          dataSource={dilemmas}
-          rowKey="id"
-          scroll={{ x: 1000, y: '70vh' }}
+          dataSource={filteredData}
+          loading={loading}
           pagination={{
-            pageSize: 20,
+            current: pagination.current,
+            pageSize: pagination.pageSize,
+            total: pagination.total,
             showSizeChanger: true,
             showQuickJumper: true,
-            showTotal: (total, range) => 
-              `${range[0]}-${range[1]} of ${total} dilemmas`,
+            showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} dilemmas`,
+            pageSizeOptions: ['10', '20', '50', '100'],
           }}
+          onChange={handleTableChange}
+          scroll={{ x: 1000, y: '70vh' }}
           size="small"
-          bordered
-          className="dilemmas-antd-table"
+          className="dilemmas-table"
         />
       </Card>
     </div>

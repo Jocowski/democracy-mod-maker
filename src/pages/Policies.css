@@ -37,6 +37,127 @@
   gap: 1rem;
 }
 
+/* Table Header Styling */
+.policies-table-header {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(25, 118, 210, 0.05) 0%, rgba(21, 101, 192, 0.05) 100%);
+  border-radius: 8px;
+  border: 1px solid rgba(25, 118, 210, 0.2);
+}
+
+.policies-table-header .policies-management-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.policies-table-header .ant-typography {
+  color: #1565c0;
+  margin: 0;
+}
+
+.policies-management-search-container {
+  display: flex;
+  align-items: center;
+}
+
+.policies-management-search-input {
+  width: 300px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.3s ease;
+}
+
+.policies-management-search-input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+/* Table Styling */
+.policies-table-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8f4fd;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.policies-management-table {
+  font-size: 0.9rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.policies-management-table .ant-table-container {
+  width: 100%;
+  max-width: 100%;
+}
+
+.policies-management-table .ant-table-thead > tr > th {
+  background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
+  color: #1565c0;
+  font-weight: 600;
+  border-bottom: 2px solid #e8f4fd;
+  padding: 12px 8px;
+}
+
+.policies-management-table .ant-table-tbody > tr > td {
+  padding: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.policies-management-table .ant-table-tbody > tr:hover > td {
+  background: rgba(25, 118, 210, 0.05);
+}
+
+.policies-management-table .ant-table-tbody > tr.ant-table-row-selected > td {
+  background: rgba(25, 118, 210, 0.1);
+}
+
+/* Policy Data Styling */
+.policy-name {
+  font-weight: 600;
+  color: #1565c0;
+  font-size: 0.8rem;
+}
+
+/* Pagination Styling */
+.policies-management-table .ant-pagination {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.policies-management-table .ant-pagination .ant-pagination-item {
+  border-color: #d9d9d9;
+}
+
+.policies-management-table .ant-pagination .ant-pagination-item-active {
+  background: #1976d2;
+  border-color: #1976d2;
+}
+
+.policies-management-table .ant-pagination .ant-pagination-item-active a {
+  color: white;
+}
+
+.policies-management-table .ant-pagination .ant-pagination-item:hover {
+  border-color: #1976d2;
+}
+
+.policies-management-table .ant-pagination .ant-pagination-item:hover a {
+  color: #1976d2;
+}
+
+.policies-management-table .ant-pagination .ant-pagination-prev:hover,
+.policies-management-table .ant-pagination .ant-pagination-next:hover {
+  border-color: #1976d2;
+  color: #1976d2;
+}
+
 .export-policies-button {
   background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%) !important;
   border: none !important;
@@ -540,7 +661,7 @@
   background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
   border-radius: 8px 8px 0 0;
   margin: 0;
-  padding: 0 1rem;
+  padding: 0;
 }
 
 .policy-form-tabs .ant-tabs-tab {
@@ -549,7 +670,12 @@
   padding: 1rem 1.5rem !important;
   border: none !important;
   background: transparent !important;
+  margin-right: 0 !important;
   transition: all 0.3s ease !important;
+}
+
+.policy-form-tabs .ant-tabs-tab + .ant-tabs-tab {
+  margin: 0 !important;
 }
 
 .policy-form-tabs .ant-tabs-tab:hover {
@@ -782,7 +908,7 @@
 .policy-name {
   color: #1565c0;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-family: 'Courier New', monospace;
   background: linear-gradient(135deg, #e3f2fd 0%, #f0f7ff 100%);
   padding: 0.5rem 0.75rem;

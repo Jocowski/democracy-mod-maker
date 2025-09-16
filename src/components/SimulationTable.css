@@ -1,0 +1,236 @@
+/* Simulation Table Styling */
+
+.simulation-table-container {
+  padding: 0;
+}
+
+.simulation-table-header {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(25, 118, 210, 0.05) 0%, rgba(21, 101, 192, 0.05) 100%);
+  border-radius: 8px;
+  border: 1px solid rgba(25, 118, 210, 0.2);
+}
+
+.simulation-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.simulation-search-container {
+  display: flex;
+  align-items: center;
+}
+
+.simulation-search-input {
+  width: 300px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.3s ease;
+}
+
+.simulation-search-input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+.simulation-table-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8f4fd;
+}
+
+.simulation-table {
+  font-size: 0.9rem;
+}
+
+.simulation-table .ant-table-thead > tr > th {
+  background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
+  color: #1565c0;
+  font-weight: 600;
+  border-bottom: 2px solid #e8f4fd;
+  padding: 12px 8px;
+}
+
+.simulation-table .ant-table-tbody > tr > td {
+  padding: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.simulation-table .ant-table-tbody > tr:hover > td {
+  background: rgba(25, 118, 210, 0.05);
+}
+
+.simulation-table .ant-table-tbody > tr.ant-table-row-selected > td {
+  background: rgba(25, 118, 210, 0.1);
+}
+
+/* Simulation Data Styling */
+.simulation-name {
+  font-weight: 600;
+  color: #1565c0;
+}
+
+.simulation-zone {
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.simulation-def,
+.simulation-min,
+.simulation-max {
+  font-family: 'Courier New', monospace;
+  font-weight: 500;
+  color: #666;
+}
+
+.simulation-emotion {
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.simulation-icon {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: #666;
+  background: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.simulation-effects {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.4;
+  max-width: 300px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Pagination Styling */
+.simulation-table .ant-pagination {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.simulation-table .ant-pagination .ant-pagination-item {
+  border-color: #d9d9d9;
+}
+
+.simulation-table .ant-pagination .ant-pagination-item-active {
+  background: #1976d2;
+  border-color: #1976d2;
+}
+
+.simulation-table .ant-pagination .ant-pagination-item-active a {
+  color: white;
+}
+
+.simulation-table .ant-pagination .ant-pagination-item:hover {
+  border-color: #1976d2;
+}
+
+.simulation-table .ant-pagination .ant-pagination-item:hover a {
+  color: #1976d2;
+}
+
+.simulation-table .ant-pagination .ant-pagination-prev:hover,
+.simulation-table .ant-pagination .ant-pagination-next:hover {
+  border-color: #1976d2;
+  color: #1976d2;
+}
+
+/* Filter Dropdown Styling */
+.simulation-table .ant-table-filter-dropdown {
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.simulation-table .ant-table-filter-dropdown .ant-checkbox-wrapper {
+  color: #1565c0;
+}
+
+.simulation-table .ant-table-filter-dropdown .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #1976d2;
+  border-color: #1976d2;
+}
+
+/* Loading State */
+.simulation-table .ant-spin-container {
+  min-height: 200px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .simulation-table-header {
+    padding: 0.75rem;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  
+  .search-input {
+    width: 100%;
+  }
+  
+  .simulation-table {
+    font-size: 0.8rem;
+  }
+  
+  .simulation-table .ant-table-thead > tr > th {
+    padding: 8px 4px;
+    font-size: 0.8rem;
+  }
+  
+  .simulation-table .ant-table-tbody > tr > td {
+    padding: 6px 4px;
+  }
+  
+  .simulation-effects {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .simulation-table-header {
+    padding: 0.5rem;
+  }
+  
+  .simulation-table .ant-table-thead > tr > th {
+    padding: 6px 2px;
+    font-size: 0.75rem;
+  }
+  
+  .simulation-table .ant-table-tbody > tr > td {
+    padding: 4px 2px;
+  }
+  
+  .simulation-name {
+    font-size: 0.8rem;
+  }
+  
+  .simulation-zone,
+  .simulation-emotion {
+    font-size: 0.7rem;
+  }
+  
+  .simulation-icon {
+    font-size: 0.7rem;
+    padding: 1px 4px;
+  }
+  
+  .simulation-effects {
+    font-size: 0.7rem;
+    max-width: 100px;
+  }
+}

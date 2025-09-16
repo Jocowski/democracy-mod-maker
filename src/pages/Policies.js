@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { Card, Typography, Button, Form, Input, Space, Tooltip, Select, InputNumber, Modal, message, Tabs } from 'antd';
-import { PlusOutlined, QuestionCircleOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
-import ResizableTable from '../components/ResizableTable';
+import React, { useState, useEffect } from 'react';
+import { Card, Typography, Button, Form, Input, Space, Tooltip, Select, InputNumber, Modal, message, Tabs, Table } from 'antd';
+import { PlusOutlined, QuestionCircleOutlined, EditOutlined, DeleteOutlined, SearchOutlined } from '@ant-design/icons';
 import './Policies.css';
 
 const { Title } = Typography;
@@ -28,6 +27,53 @@ function Policies({ policies, setPolicies }) {
   const [editingPolicy, setEditingPolicy] = useState(null);
   const [deleteModalVisible, setDeleteModalVisible] = useState(false);
   const [policyToDelete, setPolicyToDelete] = useState(null);
+  const [filteredData, setFilteredData] = useState([]);
+  const [searchText, setSearchText] = useState('');
+  const [pagination, setPagination] = useState({
+    current: 1,
+    pageSize: 20,
+    total: 0,
+  });
+
+  useEffect(() => {
+    setFilteredData(policies);
+    setPagination(prev => ({
+      ...prev,
+      total: policies.length,
+    }));
+  }, [policies]);
+
+  const handleSearch = (value) => {
+    setSearchText(value);
+    if (!value) {
+      setFilteredData(policies);
+      setPagination(prev => ({
+        ...prev,
+        total: policies.length,
+        current: 1,
+      }));
+    } else {
+      const filtered = policies.filter(item =>
+        item.name.toLowerCase().includes(value.toLowerCase()) ||
+        item.department.toLowerCase().includes(value.toLowerCase()) ||
+        item.flags.toLowerCase().includes(value.toLowerCase())
+      );
+      setFilteredData(filtered);
+      setPagination(prev => ({
+        ...prev,
+        total: filtered.length,
+        current: 1,
+      }));
+    }
+  };
+
+  const handleTableChange = (paginationConfig) => {
+    setPagination({
+      current: paginationConfig.current,
+      pageSize: paginationConfig.pageSize,
+      total: paginationConfig.total,
+    });
+  };
 
   const columns = [
     {
@@ -36,6 +82,12 @@ function Policies({ policies, setPolicies }) {
       key: 'name',
       width: 200,
       ellipsis: true,
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      render: (name) => (
+        <span className="policy-name">
+          {name}
+        </span>
+      ),
     },
     {
       title: 'Flags',
@@ -900,21 +952,41 @@ function Policies({ policies, setPolicies }) {
             </Form>
       </Card>
       
+      <div className="policies-table-header">
+        <div className="policies-management-header-content">
+          <Title level={3} style={{ color: '#1565c0', margin: 0 }}>
+            Policies Management
+          </Title>
+          <div className="policies-management-search-container">
+            <Input
+              placeholder="Search policies..."
+              prefix={<SearchOutlined />}
+              value={searchText}
+              onChange={(e) => handleSearch(e.target.value)}
+              className="policies-management-search-input"
+              allowClear
+            />
+          </div>
+        </div>
+      </div>
+
       <Card className="policies-table-card">
-        <ResizableTable
+        <Table
           columns={columns}
-          dataSource={policies}
+          dataSource={filteredData}
           rowKey="name"
-          scroll={{ x: 1800, y: '60vh' }}
           pagination={{
-            pageSize: 20,
+            current: pagination.current,
+            pageSize: pagination.pageSize,
+            total: pagination.total,
             showSizeChanger: true,
             showQuickJumper: true,
-            showTotal: (total, range) => 
-              `${range[0]}-${range[1]} of ${total} policies`,
+            showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} policies`,
+            pageSizeOptions: ['10', '20', '50', '100'],
           }}
+          onChange={handleTableChange}
+          scroll={{ x: 1800, y: '60vh' }}
           size="small"
-          bordered
           className="policies-management-table"
         />
       </Card>

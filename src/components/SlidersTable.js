@@ -1,14 +1,75 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Card, Typography, Spin, Alert } from 'antd';
-import ResizableTable from './ResizableTable';
+import { Table, Card, Typography, Input, Tag, Spin, Alert } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 import './SlidersTable.css';
 
 const { Title } = Typography;
 
 function SlidersTable() {
   const [sliders, setSliders] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchText, setSearchText] = useState('');
+  const [pagination, setPagination] = useState({
+    current: 1,
+    pageSize: 20,
+    total: 0,
+  });
+
+  useEffect(() => {
+    fetchSliders();
+  }, []);
+
+  useEffect(() => {
+    setFilteredData(sliders);
+    setPagination(prev => ({
+      ...prev,
+      total: sliders.length,
+    }));
+  }, [sliders]);
+
+  const handleSearch = (value) => {
+    setSearchText(value);
+    if (!value) {
+      setFilteredData(sliders);
+      setPagination(prev => ({
+        ...prev,
+        total: sliders.length,
+        current: 1,
+      }));
+    } else {
+      const filtered = sliders.filter(item =>
+        item.name.toLowerCase().includes(value.toLowerCase()) ||
+        item.type.toLowerCase().includes(value.toLowerCase())
+      );
+      setFilteredData(filtered);
+      setPagination(prev => ({
+        ...prev,
+        total: filtered.length,
+        current: 1,
+      }));
+    }
+  };
+
+  const handleTableChange = (paginationConfig) => {
+    setPagination({
+      current: paginationConfig.current,
+      pageSize: paginationConfig.pageSize,
+      total: paginationConfig.total,
+    });
+  };
+
+  const getTypeColor = (type) => {
+    switch (type) {
+      case 'DISCRETE':
+        return 'blue';
+      case 'PERCENTAGE':
+        return 'green';
+      default:
+        return 'default';
+    }
+  };
 
   const parseCSVLine = (line) => {
     const result = [];
@@ -101,6 +162,12 @@ function SlidersTable() {
       key: 'name',
       width: 200,
       ellipsis: true,
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      render: (name) => (
+        <span className="slider-name">
+          {name}
+        </span>
+      ),
     },
     {
       title: 'Type',
@@ -108,10 +175,15 @@ function SlidersTable() {
       key: 'type',
       width: 120,
       ellipsis: true,
+      filters: [
+        { text: 'DISCRETE', value: 'DISCRETE' },
+        { text: 'PERCENTAGE', value: 'PERCENTAGE' },
+      ],
+      onFilter: (value, record) => record.type === value,
       render: (type) => (
-        <span className={`slider-type ${type.toLowerCase()}`}>
+        <Tag color={getTypeColor(type)} className="slider-type">
           {type}
-        </span>
+        </Tag>
       ),
     },
     {
@@ -120,6 +192,12 @@ function SlidersTable() {
       key: 'steps',
       width: 120,
       ellipsis: true,
+      sorter: (a, b) => {
+        if (a.steps === 'FREE SLIDER' && b.steps === 'FREE SLIDER') return 0;
+        if (a.steps === 'FREE SLIDER') return 1;
+        if (b.steps === 'FREE SLIDER') return -1;
+        return parseFloat(a.steps) - parseFloat(b.steps);
+      },
       render: (steps, record) => {
         if (record.type === 'DISCRETE') {
           return (
@@ -189,31 +267,42 @@ function SlidersTable() {
   }
 
   return (
-    <div className="sliders-container">
-      <Card>
-        <div className="sliders-header">
-          <Title level={2} style={{ color: '#1565c0', margin: 0 }}>
+    <div className="sliders-table-container">
+      <div className="sliders-table-header">
+        <div className="sliders-header-content">
+          <Title level={3} style={{ color: '#1565c0', margin: 0 }}>
             Sliders
           </Title>
-          <p className="sliders-description">
-            Game sliders that control various policy settings and their ranges.
-          </p>
+          <div className="sliders-search-container">
+            <Input
+              placeholder="Search sliders..."
+              prefix={<SearchOutlined />}
+              value={searchText}
+              onChange={(e) => handleSearch(e.target.value)}
+              className="sliders-search-input"
+              allowClear
+            />
+          </div>
         </div>
-        
-        <ResizableTable
+      </div>
+
+      <Card className="sliders-table-card">
+        <Table
           columns={columns}
-          dataSource={sliders}
-          rowKey="key"
-          scroll={{ x: 600, y: '70vh' }}
+          dataSource={filteredData}
+          loading={loading}
           pagination={{
-            pageSize: 20,
+            current: pagination.current,
+            pageSize: pagination.pageSize,
+            total: pagination.total,
             showSizeChanger: true,
             showQuickJumper: true,
-            showTotal: (total, range) => 
-              `${range[0]}-${range[1]} of ${total} sliders`,
+            showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} sliders`,
+            pageSizeOptions: ['10', '20', '50', '100'],
           }}
+          onChange={handleTableChange}
+          scroll={{ x: 600, y: '70vh' }}
           size="small"
-          bordered
           className="sliders-table"
         />
       </Card>
