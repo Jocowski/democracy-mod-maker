@@ -27,6 +27,7 @@
 }
 
 .disclaimer-section,
+.github-section,
 .game-link-section,
 .features-section {
   margin: 2rem 0;
@@ -38,6 +39,7 @@
 }
 
 .disclaimer-title,
+.github-title,
 .game-link-title,
 .features-title {
   color: #1976d2;
@@ -47,6 +49,7 @@
 }
 
 .disclaimer-text,
+.github-text,
 .game-link-text {
   color: #1565c0;
   font-size: 1rem;
@@ -57,6 +60,28 @@
 .disclaimer-text strong {
   color: #d32f2f;
   font-weight: 600;
+}
+
+.github-link {
+  display: inline-block;
+  background: linear-gradient(135deg, #24292e 0%, #1a1e22 100%);
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(36, 41, 46, 0.3);
+}
+
+.github-link:hover {
+  background: linear-gradient(135deg, #1a1e22 0%, #0d1117 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(36, 41, 46, 0.4);
+  text-decoration: none;
+  color: white;
 }
 
 .steam-link {
@@ -109,6 +134,7 @@
   }
   
   .disclaimer-section,
+  .github-section,
   .game-link-section,
   .features-section {
     padding: 1rem;
@@ -116,11 +142,13 @@
   }
   
   .disclaimer-title,
+  .github-title,
   .game-link-title,
   .features-title {
     font-size: 1.2rem;
   }
   
+  .github-link,
   .steam-link {
     padding: 10px 20px;
     font-size: 1rem;
@@ -141,6 +169,7 @@
   }
   
   .disclaimer-section,
+  .github-section,
   .game-link-section,
   .features-section {
     padding: 0.8rem;
@@ -148,11 +177,13 @@
   }
   
   .disclaimer-title,
+  .github-title,
   .game-link-title,
   .features-title {
     font-size: 1.1rem;
   }
   
+  .github-link,
   .steam-link {
     padding: 8px 16px;
     font-size: 0.9rem;
